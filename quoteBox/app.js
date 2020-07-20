@@ -58,6 +58,70 @@ document.querySelector('#button-container').addEventListener('click',(e)=>{
 
 
 		}
+		else{
+       		const color = [
+			    {
+			        red: "#ef5350"
+			       
+			    },
+			    {
+			        blue:"#2196f3"
+
+			    },
+			    {
+			        green:"#388e3c"
+			    },
+			    {
+			     yellow:"#fbc02d"
+			    },
+			    {
+			     bg1:"#ffebee"
+			    },
+			    {
+			    bg2:"#e3f2fd"
+			    },
+			    {
+			       bg3:"#f1f8e9 " 
+			    },
+			    {
+			        bg4:"#f9fbe7"
+			    }
+			]
+
+        	if ( btnIds[1] == e.target.id ){
+            let quotebox=document.querySelector('.quotebox');
+            let quotetext=document.querySelector('.quotebox-text');
+            quotetext.style.color=color[0].red;
+            quotebox.style.border="3px solid"+ color[0].red;
+            quotebox.style.background=color[4].bg1;
+
+        	}
+        	else if ( btnIds[2] == e.target.id ){
+	            let quotebox=document.querySelector('.quotebox');
+	            let quotetext=document.querySelector('.quotebox-text');
+	            quotetext.style.color=color[1].blue;
+	            quotebox.style.border="3px solid"+color[1].blue;
+	            quotebox.style.background=color[5].bg2;
+
+        	}
+         	else if ( btnIds[3] == e.target.id ){
+	            let quotebox=document.querySelector('.quotebox');
+	            let quotetext=document.querySelector('.quotebox-text');
+	            quotetext.style.color=color[2].green;
+	            quotebox.style.border="3px solid"+color[2].green;
+	            quotebox.style.background=color[6].bg3;
+
+        	}
+        	else if ( btnIds[4] == e.target.id ){
+        	    let quotebox=document.querySelector('.quotebox');
+	            let quotetext=document.querySelector('.quotebox-text');
+	            quotetext.style.color=color[3].yellow;
+	            quotebox.style.border="3px solid"+color[3].yellow;
+	            quotebox.style.background=color[7].bg4;
+
+       		}
+
+		}
 
 	}
 
