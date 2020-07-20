@@ -38,16 +38,17 @@ document.querySelector('#button-container').addEventListener('click',(e)=>{
 	const btnIds = ['generate-quote','red', 'blue', 'green', 'yellow'] ;
 	if (btnIds.includes(e.target.id)) {
 		if ( btnIds[0] == e.target.id ) {
-			a = quotes[generateQuote()];
+			let a = quotes[generateQuote()];
 			console.log(a);
-			ptagSource = document.createElement('span');
-			br = document.createElement('br');
+			let ptagSource = document.createElement('span');
+			let br = document.createElement('br');
 			ptagSource.textContent = ' - '+ a.source;
 			
 			ptagSource.classList.add('author')
 			console.log(ptagSource);
 
-			ptagOfQuote = document.getElementsByClassName('quotebox')[0].firstElementChild
+			let ptagOfQuote = document.getElementsByClassName('quotebox')[0].firstElementChild
+			
 			ptagOfQuote.textContent = a.quote;
 			ptagOfQuote.appendChild(br);
 			ptagOfQuote.appendChild(ptagSource);
