@@ -62,6 +62,15 @@
 	font-weight: bold;
 	font-size: 16px;
 	color: white;
+	border-radius:10%;
+	border:2px solid #bcaaa4;
+	display:inline-block;
+	cursor: pointer;
+	transition:transform 200ms ease-in-out;
+}
+
+.btn-section button:hover{
+	transform:scale(1.1);
 }
 
 .generate-quote-button{
@@ -70,7 +79,16 @@
 	font-weight: bold;
 	background-color: gray;
 	color: white;
+	border:2px solid #757575;
+	display:inline-block;
+	cursor: pointer;
+	transition:transform 200ms ease-in-out;
 }
+
+.generate-quote-button:hover{
+	transform:scale(1.1);
+}
+
 .btn-red{
 	background-color: #d61c2e; /*#ff1751;
 */	
