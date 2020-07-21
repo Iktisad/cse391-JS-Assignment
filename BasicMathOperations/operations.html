@@ -3,28 +3,58 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>HeroConverter</title>
-	<link rel="stylesheet" href="../stylesheets/heroStyle.css">
+	<title>MathOperations</title>
+	<link rel="stylesheet" href="../stylesheets/operations.css">
 	<script src="https://kit.fontawesome.com/5ffbd0ba60.js" crossorigin="anonymous"></script>
 </head>
-<body class="center">
-	<header class="header-content">
-		<h1>Hero Converter</h1>
+<body>
+	<header class="header">
+		<h1>Min,Max,Sum, Average and Reverse Order</h1>
 	</header>
 
 	<section class="section-content">
-		<label for="convert">Convert</label>
-		<input id="convert" type="number">
-		<select name="" id="option">
-			<option value="1">lb to kg</option>
-			<option value="2">kg to lb</option>
-		</select>
+
+		<div>
+			<label for="">Input Series Of A Number :</label>
+			<input id="input-box" class="input-box" type="text">
+			<span id="err"></span>
+			
+		</div>
 		
-		<button class="btn" id="go">Go</button>
+		<div>
+			<label for="">Max :</label>
+			<span id="max"></span>
+			
+		</div>
+		
+		<div>
+			<label for="">Min :</label>
+			<span id="min"></span>
+			
+		</div>
+		
+		<div>
+			
+			<label for="">Sum :</label>
+			<span id="sum"></span>
+			
+		</div>
+		
+		<div>
+			
+			<label for="">Average :</label>
+			<span id="average"></span>
+			
+		</div>
+		<div>
+			
+			<label for="">Reverse Order :</label>
+			<span id="reverse-order"></span>
+			
+		</div>
 
-		<span id="result"></span>
 	</section>
-
+	
 	<footer>
 		<p>contact me</p>
 
@@ -37,7 +67,6 @@
 
 		</div>
 	</footer>
-
 	<script src="app.js"></script>
 </body>
 </html>
