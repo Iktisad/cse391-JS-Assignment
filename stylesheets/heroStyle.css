@@ -37,14 +37,23 @@ input[type=number] {
 
 }
 
-.section-content label,input, select{
+.section-content label,input, select, span{
 
 	padding: 10px;
 	margin-right: 10px;
 	font-family: monospace;
 	font-size: 20px;
 }
-
+.btn{
+  background-color: #555555; /* black */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
 footer{
 	background-color: #474544;

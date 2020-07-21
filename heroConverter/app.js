@@ -1,16 +1,16 @@
 let convertToKg = function (weight) {
-	return (weight *  0.45359237).toFixed(3);
+	return (weight *  0.45359237).toFixed(4);
 }
 
 let convertToLb = function(weight){
-	return (weight/0.45359237 ).toFixed(3);
+	return (weight/0.45359237 ).toFixed(4);
 }
 
 
 
 document.getElementById('go').addEventListener('click', (e) => {
 	const value = document.getElementById('convert').value;
-	
+	let result = null;
 	if (value != '') {
 		// first check which system it is to be converted
 		let val = document.getElementById('option');
@@ -19,12 +19,15 @@ document.getElementById('go').addEventListener('click', (e) => {
 
 		switch (option) {
 			case 'kg to lb':
-				console.log(convertToLb(value))
+				result = convertToLb(value)
+				console.log(result)
+				document.getElementById('result').textContent = result;
 				break;
 			default:
+				result = convertToKg(value)
+				console.log(result);
+				document.getElementById('result').textContent = result;
 
-
-				console.log(convertToKg(value));
 				break;
 		}
 	}
