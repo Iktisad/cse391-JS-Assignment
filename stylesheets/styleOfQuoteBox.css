@@ -122,9 +122,12 @@ footer p{
 a {
   color: white;
   text-decoration: inherit;
-  cursor: inherit;
+  cursor: all;
   padding: 40px;
   font-size: 20px;
+}
+a:hover{
+	color:#28e0e0;
 }
 .contact{
 	display: flex;

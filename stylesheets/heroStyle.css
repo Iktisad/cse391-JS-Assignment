@@ -67,10 +67,13 @@ footer p{
 
 a {
   color: white;
-  text-decoration: inherit;
-  cursor: inherit;
+  text-decoration: none;
+  cursor: all;
   padding: 20px;
   font-size: 20px;
+}
+a:hover{
+  color:#28e0e0;
 }
 .contact{
 	display: flex;
