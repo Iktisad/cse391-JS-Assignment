@@ -2,87 +2,255 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight Converter</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap"
+      rel="stylesheet"
     />
-    <title>HeroConverter</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script
-      src="https://kit.fontawesome.com/5ffbd0ba60.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Chrome, Safari, Edge, Opera */
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      /* Remove number input arrows for all browsers */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
       }
-
-      /* Firefox */
       input[type="number"] {
         -moz-appearance: textfield;
       }
     </style>
   </head>
-  <body class="mx-auto w-1/2 p-2.5">
-    <header class="py-24 text-center">
-      <h1 class="text-4xl font-bold">Hero Converter</h1>
-    </header>
-
-    <section class="flex justify-center bg-gray-200 py-36">
-      <label for="convert" class="p-2.5 mr-2.5 font-mono text-xl"
-        >Convert</label
-      >
-      <input
-        id="convert"
-        type="number"
-        class="p-2.5 mr-2.5 font-mono text-xl"
+  <body class="bg-gray-100 min-h-screen flex flex-col relative overflow-hidden">
+    <!-- Background image with opacity -->
+    <div class="pointer-events-none select-none fixed inset-0 z-0">
+      <img
+        src="./background.jpg"
+        alt="Background"
+        class="w-full h-full object-cover opacity-[0.08]"
+        draggable="false"
       />
-      <select name="" id="option" class="p-2.5 mr-2.5 font-mono text-xl">
-        <option value="1">lb to kg</option>
-        <option value="2">kg to lb</option>
-      </select>
-
-      <button
-        class="bg-gray-600 border-none text-white py-4 px-8 text-center no-underline inline-block text-base"
-        id="go"
+    </div>
+    <div
+      class="flex flex-col min-h-screen justify-center items-center z-10 relative"
+    >
+      <nav
+        class="w-full flex items-center pt-8 pb-2 absolute top-0 left-0 pl-8"
       >
-        Go
-      </button>
-
-      <span id="result" class="p-2.5 mr-2.5 font-mono text-xl"></span>
-    </section>
-
-    <footer class="bg-gray-700 text-white p-5 text-center">
-      <p class="text-2xl">contact me</p>
-
-      <div class="flex justify-center">
         <a
-          href="https://github.com/Iktisad"
-          class="text-white no-underline p-5 text-xl hover:text-cyan-400"
-          ><i class="fab fa-github fa-2x"></i
-        ></a>
-        <a
-          href="https://www.linkedin.com/in/iktisad-rashid-3587a6122/"
-          class="text-white no-underline p-5 text-xl hover:text-cyan-400"
-          ><i class="fab fa-linkedin-in fa-2x"></i
-        ></a>
-        <a
-          href="https://www.facebook.com/Iktisad"
-          class="text-white no-underline p-5 text-xl hover:text-cyan-400"
+          href="../index.html"
+          class="text-gray-700 hover:text-gray-900 underline text-md font-bold transition"
         >
-          <i class="fab fa-facebook-f fa-2x"></i>
+          <-- Back
         </a>
-      </div>
-      <a
-        href="../index.html"
-        class="text-white no-underline p-5 text-xl hover:text-cyan-400"
-        >Go Back To List</a
+      </nav>
+      <div
+        class="bg-white rounded-2xl shadow-lg p-10 max-w-md w-full flex flex-col items-stretch mt-16"
       >
-    </footer>
+        <h1 class="text-2xl font-semibold tracking-wide mb-8 text-center">
+          Hero Converter
+        </h1>
+        <label for="convert" class="text-base font-medium mb-2 text-gray-700">
+          Enter Value
+        </label>
+        <input
+          id="convert"
+          type="number"
+          placeholder="e.g. 100"
+          min="0"
+          step="any"
+          class="mb-5 px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:border-gray-400 text-base appearance-none"
+        />
+        <label
+          for="conversion"
+          class="text-base font-medium mb-2 text-gray-700"
+        >
+          Conversion
+        </label>
+        <div class="relative mb-5">
+          <select
+            id="conversion"
+            class="block w-full px-4 py-3 pr-10 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:border-gray-400 text-base appearance-none transition"
+          >
+            <option value="lb-kg">Pounds (lb) → Kilograms (kg)</option>
+            <option value="kg-lb">Kilograms (kg) → Pounds (lb)</option>
+            <option value="g-kg">Grams (g) → Kilograms (kg)</option>
+            <option value="kg-g">Kilograms (kg) → Grams (g)</option>
+            <option value="oz-g">Ounces (oz) → Grams (g)</option>
+            <option value="g-oz">Grams (g) → Ounces (oz)</option>
+            <option value="st-kg">Stones (st) → Kilograms (kg)</option>
+            <option value="kg-st">Kilograms (kg) → Stones (st)</option>
+          </select>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-3 flex items-center"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </div>
+        <span
+          id="error"
+          class="text-red-600 text-sm min-h-[1.2em] text-center mb-2"
+        ></span>
+        <button
+          id="go"
+          class="bg-gray-900 hover:bg-gray-700 text-white font-semibold rounded-lg py-3 transition mb-2"
+        >
+          Convert
+        </button>
+        <div id="result-container" class="flex justify-center">
+          <div
+            id="result-card"
+            class="hidden opacity-0 transition-opacity duration-300 w-full"
+          >
+            <div
+              class="flex flex-col items-center bg-gray-50 border border-gray-200 rounded-xl px-6 py-5 shadow-sm mt-2 w-full"
+            >
+              <div class="mb-2">
+                <svg
+                  class="w-8 h-8 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+              <div class="flex items-end gap-2">
+                <span
+                  id="result-value"
+                  class="text-2xl font-bold text-gray-800"
+                ></span>
+                <span
+                  id="result-from"
+                  class="text-base text-gray-500 font-medium"
+                ></span>
+                <span class="text-xl text-gray-400 font-bold mx-2">=</span>
+                <span
+                  id="result-converted"
+                  class="text-2xl font-bold text-blue-700"
+                ></span>
+                <span
+                  id="result-to"
+                  class="text-base text-gray-500 font-medium"
+                ></span>
+              </div>
+              <div id="result-detail" class="text-xs text-gray-400 mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const resultText = document.getElementById("result");
+        const errorText = document.getElementById("error");
+        const convertBtn = document.getElementById("go");
+        const inputField = document.getElementById("convert");
+        const selectOption = document.getElementById("conversion");
+        const resultCard = document.getElementById("result-card");
+        const resultValue = document.getElementById("result-value");
+        const resultFrom = document.getElementById("result-from");
+        const resultConverted = document.getElementById("result-converted");
+        const resultTo = document.getElementById("result-to");
+        const resultDetail = document.getElementById("result-detail");
 
-    <script src="app.js"></script>
+        const conversions = {
+          "lb-kg": { factor: 0.453592, from: "lb", to: "kg" },
+          "kg-lb": { factor: 2.20462, from: "kg", to: "lb" },
+          "g-kg": { factor: 0.001, from: "g", to: "kg" },
+          "kg-g": { factor: 1000, from: "kg", to: "g" },
+          "oz-g": { factor: 28.3495, from: "oz", to: "g" },
+          "g-oz": { factor: 0.035274, from: "g", to: "oz" },
+          "st-kg": { factor: 6.35029, from: "st", to: "kg" },
+          "kg-st": { factor: 0.157473, from: "kg", to: "st" },
+        };
+
+        // Only allow numbers and one decimal point in input
+        inputField.addEventListener("input", (e) => {
+          let value = e.target.value;
+          // Remove all except digits and decimal point
+          value = value.replace(/[^0-9.]/g, "");
+          // Only allow one decimal point
+          const parts = value.split(".");
+          if (parts.length > 2) {
+            value = parts[0] + "." + parts.slice(1).join("");
+          }
+          e.target.value = value;
+        });
+
+        convertBtn.addEventListener("click", () => {
+          errorText.textContent = "";
+          // Hide and reset result card
+          resultCard.classList.add("hidden");
+          resultCard.classList.remove("opacity-100");
+          resultCard.classList.add("opacity-0");
+          const value = parseFloat(inputField.value);
+          const type = selectOption.value;
+          if (isNaN(value) || value < 0) {
+            errorText.textContent = "Please enter a valid non-negative number.";
+            return;
+          }
+          let result;
+          if (
+            type === "lb-kg" ||
+            type === "g-kg" ||
+            type === "oz-g" ||
+            type === "kg-g" ||
+            type === "kg-lb" ||
+            type === "g-oz" ||
+            type === "st-kg" ||
+            type === "kg-st"
+          ) {
+            result = value * conversions[type].factor;
+            // Show result in card
+            resultValue.textContent = value;
+            resultFrom.textContent = conversions[type].from;
+            resultConverted.textContent = result.toFixed(4);
+            resultTo.textContent = conversions[type].to;
+            resultDetail.textContent = `1 ${conversions[type].from} = ${conversions[type].factor} ${conversions[type].to}`;
+            // Animate card
+            setTimeout(() => {
+              resultCard.classList.remove("hidden");
+              setTimeout(() => {
+                resultCard.classList.remove("opacity-0");
+                resultCard.classList.add("opacity-100");
+              }, 10);
+            }, 50);
+          }
+        });
+
+        inputField.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") convertBtn.click();
+        });
+      });
+    </script>
   </body>
 </html>
