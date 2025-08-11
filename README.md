@@ -64,7 +64,7 @@ Features include: capitalize, sort, reverse, strip blanks, add numbers, shuffle,
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/cse391-JS-Assignment.git
+   git clone https://github.com/Iktisad/BRACU_JS_Mini_Projects.git
    ```
 2. **Open `index.html` in your browser**  
    All projects are accessible from the main navigation page.
