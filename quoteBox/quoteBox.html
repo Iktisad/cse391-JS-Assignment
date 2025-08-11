@@ -61,25 +61,6 @@
         opacity: 0.08; /* Adjust opacity of the background */
         z-index: -1; /* Keeps it behind content */
       }
-
-      /* Breadcrumb Styling */
-      .breadcrumb {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #333;
-      }
-
-      .breadcrumb a {
-        text-decoration: none;
-        color: #333;
-      }
-
-      .breadcrumb a:hover {
-        text-decoration: underline;
-      }
     </style>
   </head>
 
@@ -90,10 +71,14 @@
     <div class="background-container"></div>
 
     <!-- Breadcrumb Link -->
-    <nav class="breadcrumb">
-      <a href="../index.html"> <-- Back</a>
+    <nav class="w-full flex items-center absolute top-0 left-0 pt-8 pl-8 z-20">
+      <a
+        href="../index.html"
+        class="text-gray-800 hover:text-gray-900 font-bold underline text-lg transition"
+      >
+        ← Back
+      </a>
     </nav>
-
     <header class="text-center mb-8">
       <h1 class="text-4xl font-bold text-gray-800">Quotes To Inspire</h1>
     </header>

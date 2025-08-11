@@ -3,57 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <title>BRACU CSE391 Assignment 2</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="mx-auto w-1/2 p-2.5">
-    <header><h1 class="text-2xl font-bold">Assignment 2 List</h1></header>
-    <div id="quote-container" class="w-full max-w-lg p-6 text-center"></div>
-    <!-- Dynamic Component Rendering -->
-    <ul>
-      <li>
-        <h2 class="text-xl font-semibold">Part 1</h2>
-        <ul>
-          <li class="p-5">
-            <a
-              href="./quoteBox/quoteBox.html"
-              class="text-gray-800 no-underline p-5 text-xl hover:text-gray-500"
-              >1.1 Quote Box</a
-            >
-          </li>
-          <li class="p-5">
-            <a
-              href="./heroConverter/hero.html"
-              class="text-gray-800 no-underline p-5 text-xl hover:text-gray-500"
-              >1.2 Hero Converter</a
-            >
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <h2 class="text-xl font-semibold">Part 2</h2>
-        <ul>
-          <li class="p-5">
-            <a
-              href="./BasicMathOperations/operations.html"
-              class="text-gray-800 no-underline p-5 text-xl hover:text-gray-500"
-              >Max, Min , Sum, Average And Reverse Order</a
-            >
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h2 class="text-xl font-semibold">Part 3</h2>
-        <ul>
-          <li class="p-5">
-            <a
-              href="./magicBox/magicbox.html"
-              class="text-gray-800 no-underline p-5 text-xl hover:text-gray-500"
-              >Magic Box</a
-            >
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <body class="bg-gradient-to-br from-blue-100 via-white to-pink-100 min-h-screen flex flex-col items-center">
+    <header class="w-full py-10 mb-8 bg-white/80 shadow-lg">
+      <h1 class="text-4xl font-extrabold text-center text-gray-800 tracking-tight">
+        Assignment 2 Of CSE391
+      </h1>
+      <p class="text-center text-gray-500 mt-2 text-lg">
+        Explore all features and tools below
+      </p>
+    </header>
+    <main class="w-full max-w-2xl mx-auto flex-1 flex flex-col items-center">
+      <div class="w-full">
+        <div class="bg-white/90 rounded-2xl shadow-xl p-8">
+          <h2 class="text-2xl font-bold text-gray-700 mb-6">
+            Project Overview & Navigation
+          </h2>
+          <ul class="space-y-8">
+            <li>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-blue-500">
+                  <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                  </svg>
+                </span>
+                <a
+                  href="./quoteBox/quoteBox.html"
+                  class="text-xl font-bold text-gray-800 hover:text-blue-600 transition"
+                >
+                  Quote Box
+                </a>
+              </div>
+              <p class="ml-10 text-gray-600 text-base">
+                Displays a random inspirational quote each time you visit or
+                refresh. Simple, clean, and motivational.
+              </p>
+            </li>
+            <li>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-blue-500">
+                  <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                  </svg>
+                </span>
+                <a
+                  href="./heroConverter/hero.html"
+                  class="text-xl font-bold text-gray-800 hover:text-blue-600 transition"
+                >
+                  Hero Converter
+                </a>
+              </div>
+              <p class="ml-10 text-gray-600 text-base">
+                A minimalistic tool to convert between various weight units (lb,
+                kg, g, oz, st) with instant feedback and a modern UI.
+              </p>
+            </li>
+            <li>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-blue-500">
+                  <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                  </svg>
+                </span>
+                <a
+                  href="./BasicMathOperations/operations.html"
+                  class="text-xl font-bold text-gray-800 hover:text-pink-500 transition"
+                >
+                  Math Operations
+                </a>
+              </div>
+              <p class="ml-10 text-gray-600 text-base">
+                Enter numbers one at a time and instantly see the maximum,
+                minimum, sum, average, and the reverse order of your list.
+              </p>
+            </li>
+            <li>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-blue-500">
+                  <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                  </svg>
+                </span>
+                <a
+                  href="./magicBox/magicbox.html"
+                  class="text-xl font-bold text-gray-800 hover:text-purple-500 transition"
+                >
+                  Magic Box
+                </a>
+              </div>
+              <p class="ml-10 text-gray-600 text-base">
+                A playful utility to manipulate lists of words or
+                phrases—capitalize, sort, reverse, strip blanks, add numbers,
+                shuffle, and clear—all in a magical, interactive interface.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer class="w-full py-8 text-center text-gray-400 text-sm mt-8">
+      &copy; 2024 BRACU CSE391 Assignment 2
+    </footer>
+  </body>
+</html>
+              </p>
+            </li>
+            <li>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-purple-400">
+                  <svg
+                    class="w-6 h-6 inline"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect x="4" y="4" width="16" height="16" rx="4" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8 12h8M12 8v8"
+                    />
+                  </svg>
+                </span>
+                <a
+                  href="./magicBox/magicbox.html"
+                  class="text-xl font-bold text-gray-800 hover:text-purple-500 transition"
+                >
+                  Magic Box
+                </a>
+              </div>
+              <p class="ml-10 text-gray-600 text-base">
+                A playful utility to manipulate lists of words or
+                phrases—capitalize, sort, reverse, strip blanks, add numbers,
+                shuffle, and clear—all in a magical, interactive interface.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer class="w-full py-8 text-center text-gray-400 text-sm mt-8">
+      &copy; 2024 BRACU CSE391 Assignment 2
+    </footer>
+  </body>
+</html>
+                    <a
+                      href="./magicBox/magicbox.html"
+                      class="flex items-center gap-2 text-xl text-gray-800 hover:text-purple-500 transition"
+                    >
+                      <span
+                        class="inline-block w-2 h-2 bg-purple-400 rounded-full"
+                      ></span>
+                      Magic Box
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="w-full py-8 text-center text-gray-400 text-sm mt-8">
+      &copy; 2024 BRACU CSE391 Assignment 2
+    </footer>
   </body>
 </html>
