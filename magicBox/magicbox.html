@@ -1,21 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    	<meta charset="UTF-8">
-    	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    	
-    	<title>Document</title>
-    	<link rel="stylesheet" href="../stylesheets/styleOfQuoteBox.css">
-    	<link href='https://fonts.googleapis.com/css?family=Ranchers' rel='stylesheet'>
-    	<link rel="stylesheet" href="../stylesheets/magicbox.css">
-    	<script src="https://kit.fontawesome.com/5ffbd0ba60.js" crossorigin="anonymous"></script>
-    </head>
-    <body >
-    	<div class="box">
-    	   <h1>Magic ! !</h1>
-    	   <br>
-            <textarea id="textarea" name="" rows="20" cols="50" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ranchers"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5ffbd0ba60.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div
+      class="grid justify-center p-12 bg-gradient-to-b from-gray-800 to-pink-600"
+    >
+      <h1
+        class="font-bold text-white underline p-1 tracking-wide text-shadow-lg text-4xl"
+        style="font-family: Ranchers; text-shadow: 2px 3px #26a69a"
+      >
+        Magic ! !
+      </h1>
+      <br />
+      <textarea
+        id="textarea"
+        name=""
+        rows="20"
+        cols="50"
+        class="inline-flex border-4 border-blue-600 p-12 text-base shadow-lg bg-gradient-to-b from-green-300 to-pink-300"
+        style="
+          font-family: Ranchers;
+          box-shadow: 5px 10px rgba(63, 81, 181, 0.3);
+        "
+      >
              Sirius
 
              Betelguese
@@ -42,33 +66,81 @@
              Boo
 
 
-            </textarea>
-            <div class="button-container">
-                <button id="capital"class="button button2">Capitalize</button>
-                <button id="sort" class="button button3">Sort</button>
-                <button id="reverse" class="button button4">Reverse</button>
-                <button id="strip" class="button button5">Strip Blank</button>
-                <button  id="add" class="button button5">Add Numbers</button>
-                <button id="shuffle"class="button button5">Shuffle</button>
-                <button id="clear" class="button">Clear All</button>
+            </textarea
+      >
+      <div class="flex p-12 pt-20">
+        <button
+          id="capital"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Capitalize
+        </button>
+        <button
+          id="sort"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Sort
+        </button>
+        <button
+          id="reverse"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Reverse
+        </button>
+        <button
+          id="strip"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Strip Blank
+        </button>
+        <button
+          id="add"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Add Numbers
+        </button>
+        <button
+          id="shuffle"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Shuffle
+        </button>
+        <button
+          id="clear"
+          class="bg-green-500 border-none text-white py-4 px-8 text-center no-underline inline-block text-base my-1 mx-0.5 cursor-pointer rounded border-4 border-green-800 transition-transform duration-200 ease-in-out hover:scale-110 p-4"
+        >
+          Clear All
+        </button>
+      </div>
+    </div>
+    <footer class="bg-gray-700 text-white p-10 text-center">
+      <p class="text-4xl">contact me</p>
 
-            </div>
+      <div class="flex justify-center">
+        <a
+          href="https://github.com/Iktisad"
+          class="text-white no-underline p-10 text-xl hover:text-cyan-400"
+          ><i class="fab fa-github fa-2x"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/iktisad-rashid-3587a6122/"
+          class="text-white no-underline p-10 text-xl hover:text-cyan-400"
+          ><i class="fab fa-linkedin-in fa-2x"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/Iktisad"
+          class="text-white no-underline p-10 text-xl hover:text-cyan-400"
+        >
+          <i class="fab fa-facebook-f fa-2x text-white"></i>
+        </a>
+      </div>
+      <a
+        href="../index.html"
+        class="text-white no-underline p-10 text-xl hover:text-cyan-400"
+        >Go Back To List</a
+      >
+    </footer>
 
-        </div>
-        <footer>
-        <p>contact me</p>
-
-        <div class="contact">
-            <a href="https://github.com/Iktisad"><i class="fab fa-github fa-2x"></i></a>
-            <a href="https://www.linkedin.com/in/iktisad-rashid-3587a6122/"><i class="fab fa-linkedin-in fa-2x"></i></a>
-            <a href="https://www.facebook.com/Iktisad">
-                <span style="color:white;"><i class="fab fa-facebook-f fa-2x"></span></i>
-            </a>
-
-        </div>
-        <a href="../index.html">Go Back To List</a>
-        </footer>
-
-    	<script src="app.js"></script>
-    </body>
+    <script src="app.js"></script>
+  </body>
 </html>

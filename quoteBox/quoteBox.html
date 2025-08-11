@@ -1,57 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	
-	<title>QuoteBox</title>
-	<link rel="stylesheet" href="../stylesheets/styleOfQuoteBox.css">
-	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/5ffbd0ba60.js" crossorigin="anonymous"></script>
-</head>
-<body class="center">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuoteBox</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Typing animation */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
 
-	<header class="header-content">
+      .typing {
+        display: inline-block;
+        white-space: normal; /* Allow text to wrap */
+        overflow: hidden;
+        border-right: 3px solid #333;
+        animation: typing 2s steps(40) 1s forwards;
+      }
 
-		<h1>Random Quote <span style="color:gray;">Generator</span></h1>
-		<!-- <img class="" src="../assets/bulb1.jpg" alt=""> -->
-	</header>
-	
-	<section id="button-container" class="section-content">
-		
-		
-		<div class="quotebox">
-			<p class="quotebox-text">Inspire Yourself And Stay Motivated</p>
-		</div>
-		
-		<div class="btn-container">
-			<div>
-				<button id="generate-quote" class="generate-quote-button">Generate Quote</button>
-			</div>
-			
-			<div class="btn-section">
-				
-				<button id="red" class="btn-red">red</button>
-				<button id="green" class="btn-green">green</button>
-				<button id="blue" class="btn-blue">blue</button>
-				<button id="yellow" class="btn-yellow">yellow</button>
-			</div>
-		
-		</div>	
-	
-	</section>
-	<footer>
-		<p>contact me</p>
+      /* Loading spinner style */
+      .spinner {
+        border: 4px solid transparent;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+      }
 
-		<div class="contact">
-			<a href="https://github.com/Iktisad"><i class="fab fa-github fa-2x"></i></a>
-			<a href="https://www.linkedin.com/in/iktisad-rashid-3587a6122/"><i class="fab fa-linkedin-in fa-2x"></i></a>
-			<a href="https://www.facebook.com/Iktisad">
-				<i class="fab fa-facebook-f fa-2x"></i>
-			</a>
-		</div>
-		<a href="../index.html">Go Back To List</a>
-	</footer>
-	<script src="app.js"></script>
-</body>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* New container for background image */
+      .background-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("background.jpg"); /* Replace with your image path or URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.08; /* Adjust opacity of the background */
+        z-index: -1; /* Keeps it behind content */
+      }
+
+      /* Breadcrumb Styling */
+      .breadcrumb {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .breadcrumb a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gray-100 font-sans flex flex-col justify-center items-center min-h-screen p-4"
+  >
+    <!-- Background container with image -->
+    <div class="background-container"></div>
+
+    <!-- Breadcrumb Link -->
+    <nav class="breadcrumb">
+      <a href="../index.html"> <-- Back</a>
+    </nav>
+
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-800">Quotes To Inspire</h1>
+    </header>
+
+    <main class="w-full max-w-lg bg-white rounded-lg shadow-md p-6 text-center">
+      <div class="mb-6">
+        <p
+          id="quote"
+          class="text-2xl font-semibold text-gray-700"
+          style="font-family: 'Dancing Script', cursive"
+        >
+          "Inspire Yourself and Stay Motivated!"
+        </p>
+        <!-- Loading spinner (Initially hidden) -->
+        <div id="loading-spinner" class="spinner hidden mt-4 mx-auto"></div>
+      </div>
+
+      <button
+        id="generate-quote"
+        class="w-full py-3 bg-gray-800 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition-colors"
+      >
+        Inspire Me
+      </button>
+
+      <div class="mt-6 flex justify-center space-x-4">
+        <button
+          id="text-red-500"
+          class="w-10 h-10 rounded-full bg-red-500 hover:bg-red-400 transition-colors"
+        ></button>
+        <button
+          id="text-green-500"
+          class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-400 transition-colors"
+        ></button>
+        <button
+          id="text-sky-500"
+          class="w-10 h-10 rounded-full bg-blue-500 hover:bg-blue-400 transition-colors"
+        ></button>
+        <button
+          id="text-yellow-500"
+          class="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors"
+        ></button>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const quoteElement = document.getElementById("quote");
+        const generateQuoteButton = document.getElementById("generate-quote");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        const colorButtons = document.querySelectorAll("button[id]");
+
+        // Variable to maintain the current color
+        let currentColor = "text-gray-700"; // Default color
+
+        // Array of 100 quotes
+        const quotes = [
+          {
+            quote:
+              "Lack of emotion causes lack of progress and lack of motivation.",
+            author: "Tony Robbins",
+          },
+          {
+            quote:
+              "The friend is the man who knows all about you, and still likes you.",
+            author: "Elbert Hubbard",
+          },
+          {
+            quote:
+              "Success is not the key to happiness. Happiness is the key to success.",
+            author: "Albert Schweitzer",
+          },
+          {
+            quote: "The only way to do great work is to love what you do.",
+            author: "Steve Jobs",
+          },
+          {
+            quote: "Don’t cry because it’s over, smile because it happened.",
+            author: "Dr. Seuss",
+          },
+          {
+            quote: "You must be the change you wish to see in the world.",
+            author: "Mahatma Gandhi",
+          },
+          {
+            quote: "Believe you can and you're halfway there.",
+            author: "Theodore Roosevelt",
+          },
+          {
+            quote: "Everything you can imagine is real.",
+            author: "Pablo Picasso",
+          },
+          {
+            quote: "It always seems impossible until it's done.",
+            author: "Nelson Mandela",
+          },
+          {
+            quote:
+              "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+            author: "Ralph Waldo Emerson",
+          },
+          // Add more quotes up to 100
+        ];
+
+        // Function to fetch a random quote from the array
+        function fetchQuote() {
+          // Show loading spinner
+          loadingSpinner.classList.remove("hidden");
+
+          // Delay for 500ms before showing the quote
+          setTimeout(() => {
+            // Hide the spinner after 500ms
+            loadingSpinner.classList.add("hidden");
+
+            // Get a random quote from the array
+            const randomQuote =
+              quotes[Math.floor(Math.random() * quotes.length)];
+
+            // Set the quote text first, then split it into words
+            const words = randomQuote.quote.split(" ");
+            let index = 0;
+            quoteElement.textContent = ""; // Clear previous quote text
+
+            // Add each word with a delay for typing animation
+            const typingInterval = setInterval(() => {
+              quoteElement.textContent += `${words[index]} `;
+              index++;
+              if (index === words.length) {
+                clearInterval(typingInterval); // Stop typing when all words are displayed
+              }
+            }, 100); // Delay between each word (ms)
+          }, 500); // 500ms delay before displaying the new quote
+        }
+
+        // Event listener for generating a new quote
+        generateQuoteButton.addEventListener("click", fetchQuote);
+
+        // Change text color based on button clicked
+        colorButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const color = button.id; // e.g., text-red-500, text-blue-500, etc.
+
+            // Remove any existing color classes
+            quoteElement.classList.remove(currentColor);
+
+            // Update currentColor variable
+            currentColor = color;
+
+            // Add the new color class based on the button clicked
+            quoteElement.classList.add(currentColor);
+          });
+        });
+
+        // Fetch an initial quote when the page loads
+        fetchQuote();
+      });
+    </script>
+  </body>
 </html>

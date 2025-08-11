@@ -1,44 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>HeroConverter</title>
-	<link rel="stylesheet" href="../stylesheets/heroStyle.css">
-	<script src="https://kit.fontawesome.com/5ffbd0ba60.js" crossorigin="anonymous"></script>
-</head>
-<body class="center">
-	<header class="header-content">
-		<h1>Hero Converter</h1>
-	</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>HeroConverter</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script
+      src="https://kit.fontawesome.com/5ffbd0ba60.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
-	<section class="section-content">
-		<label for="convert">Convert</label>
-		<input id="convert" type="number">
-		<select name="" id="option">
-			<option value="1">lb to kg</option>
-			<option value="2">kg to lb</option>
-		</select>
-		
-		<button class="btn" id="go">Go</button>
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body class="mx-auto w-1/2 p-2.5">
+    <header class="py-24 text-center">
+      <h1 class="text-4xl font-bold">Hero Converter</h1>
+    </header>
 
-		<span id="result"></span>
-	</section>
+    <section class="flex justify-center bg-gray-200 py-36">
+      <label for="convert" class="p-2.5 mr-2.5 font-mono text-xl"
+        >Convert</label
+      >
+      <input
+        id="convert"
+        type="number"
+        class="p-2.5 mr-2.5 font-mono text-xl"
+      />
+      <select name="" id="option" class="p-2.5 mr-2.5 font-mono text-xl">
+        <option value="1">lb to kg</option>
+        <option value="2">kg to lb</option>
+      </select>
 
-	<footer>
-		<p>contact me</p>
+      <button
+        class="bg-gray-600 border-none text-white py-4 px-8 text-center no-underline inline-block text-base"
+        id="go"
+      >
+        Go
+      </button>
 
-		<div class="contact">
-			<a href="https://github.com/Iktisad"><i class="fab fa-github fa-2x"></i></a>
-			<a href="https://www.linkedin.com/in/iktisad-rashid-3587a6122/"><i class="fab fa-linkedin-in fa-2x"></i></a>
-			<a href="https://www.facebook.com/Iktisad">
-				<i class="fab fa-facebook-f fa-2x"></i>
-			</a>
+      <span id="result" class="p-2.5 mr-2.5 font-mono text-xl"></span>
+    </section>
 
-		</div>
-		<a href="../index.html">Go Back To List</a>
-	</footer>
+    <footer class="bg-gray-700 text-white p-5 text-center">
+      <p class="text-2xl">contact me</p>
 
-	<script src="app.js"></script>
-</body>
+      <div class="flex justify-center">
+        <a
+          href="https://github.com/Iktisad"
+          class="text-white no-underline p-5 text-xl hover:text-cyan-400"
+          ><i class="fab fa-github fa-2x"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/iktisad-rashid-3587a6122/"
+          class="text-white no-underline p-5 text-xl hover:text-cyan-400"
+          ><i class="fab fa-linkedin-in fa-2x"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/Iktisad"
+          class="text-white no-underline p-5 text-xl hover:text-cyan-400"
+        >
+          <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+      </div>
+      <a
+        href="../index.html"
+        class="text-white no-underline p-5 text-xl hover:text-cyan-400"
+        >Go Back To List</a
+      >
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
 </html>
